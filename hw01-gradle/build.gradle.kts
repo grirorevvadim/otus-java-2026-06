@@ -10,13 +10,29 @@ repositories {
 }
 
 dependencies {
-    implementation("com.google.guava:guava:33.6.0-jre")
+    implementation(libs.guava)
 
-    testImplementation(platform("org.junit:junit-bom:6.0.0"))
-    testImplementation("org.junit.jupiter:junit-jupiter")
-    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    testImplementation(platform(libs.junit.bom))
+    testImplementation(libs.junit.jupiter)
+    testRuntimeOnly(libs.junit.platform.launcher)
 }
 
 tasks.test {
     useJUnitPlatform()
+}
+
+tasks.register<org.gradle.jvm.tasks.Jar>("fatJar") {
+    archiveClassifier = "fat"
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
+    dependsOn(tasks.named("compileJava"))
+
+    from(sourceSets["main"].output)
+    from(configurations["runtimeClasspath"].map {
+        if (it.isDirectory) it else zipTree(it)
+    })
+
+    manifest {
+        attributes["Main-Class"] = "org.example.Main"
+    }
 }
