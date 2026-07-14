@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     static void main() {
 
@@ -21,16 +19,15 @@ public class Main {
         System.out.println(Arrays.toString(s));
         swap(s, 2, 3);
         System.out.println(Arrays.toString(s));
-
+        System.out.println();
         //Написать метод, который преобразует массив в ArrayList;
         Double[] array1 = {1.1, 2.1, 3.2, 3.3};
         System.out.println("array: " + Arrays.toString(array1));
         System.out.println("arrayList: " + arrayToArrayList(array1));
-        System.out.println();
         String[] array2 = {"test1", "test2", "test3", "test4"};
         System.out.println("array: " + Arrays.toString(array2));
         System.out.println("arrayList: " + arrayToArrayList(array2));
-
+        System.out.println();
         // Создать массив с набором слов (10-20 слов, должны встречаться повторяющиеся).
         // Найти и вывести список уникальных слов, из которых состоит массив (дубликаты не считаем).
         // Посчитать, сколько раз встречается каждое слово.
