@@ -8,6 +8,8 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/hw01-gradle" />
+            <option value="$PROJECT_DIR$/hw02-generics-collections" />
           </set>
         </option>
         <option name="myGradleHome" value="C:\tools\gradle-6.7.1" />
