@@ -1,9 +1,13 @@
 [versions]
 guava = "33.6.0-jre"
 junit = "6.0.0"
+slf4j = "2.1.0-alpha1"
+logback = "1.5.38"
 
 [libraries]
 guava = { module = "com.google.guava:guava", version.ref = "guava" }
 junit-bom = { module = "org.junit:junit-bom", version.ref = "junit" }
 junit-jupiter = { module = "org.junit.jupiter:junit-jupiter" }
 junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher" }
+slf4j-api = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }
+logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }

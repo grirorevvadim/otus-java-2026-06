@@ -10,8 +10,8 @@ repositories {
 }
 
 dependencies {
-    implementation("org.slf4j:slf4j-api:2.1.0-alpha1")
-    implementation("ch.qos.logback:logback-classic:1.5.38")
+    implementation(libs.slf4j.api)
+    implementation(libs.logback.classic)
 
     implementation(platform(libs.junit.bom))
     implementation(libs.junit.jupiter)
