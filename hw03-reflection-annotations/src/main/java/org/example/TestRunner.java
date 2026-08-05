@@ -14,23 +14,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class TestRunner {
-    private static final String REF = "org.example.scenarios.";
     private static final Logger LOGGER = LoggerFactory.getLogger(TestRunner.class);
 
-    public static void run(String className) {
+    public static void run(Class<?> testClass) {
         HashMap<MethodType, ArrayList<Method>> methods = initMethodsMap();
-        Class<?> c1;
-        try {
-            c1 = Class.forName(REF + className);
-            LOGGER.info("Class is found: {}", c1);
-            collectAllTests(c1.getDeclaredMethods(), methods);
-            executeAllTests(c1, methods);
-
-        } catch (ClassNotFoundException e) {
-            LOGGER.error("Class with name: {} not found", className);
-            throw new RuntimeException(e);
-        }
-
+        LOGGER.info("Class is found: {}", testClass);
+        collectAllTests(testClass.getDeclaredMethods(), methods);
+        executeAllTests(testClass, methods);
     }
 
     private static @NonNull HashMap<MethodType, ArrayList<Method>> initMethodsMap() {
