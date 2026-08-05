@@ -22,13 +22,11 @@ public class TestRunner {
         Class<?> c1;
         try {
             c1 = Class.forName(REF + className);
-            Object instance = c1.getDeclaredConstructor().newInstance();
             LOGGER.info("Class is found: {}", c1);
             collectAllTests(c1.getDeclaredMethods(), methods);
-            executeAllTests(instance, methods);
+            executeAllTests(c1, methods);
 
-        } catch (ClassNotFoundException | IllegalAccessException | InvocationTargetException | InstantiationException |
-                 NoSuchMethodException e) {
+        } catch (ClassNotFoundException e) {
             LOGGER.error("Class with name: {} not found", className);
             throw new RuntimeException(e);
         }
@@ -43,12 +41,13 @@ public class TestRunner {
         return methods;
     }
 
-    private static void executeAllTests(Object instance, HashMap<MethodType, ArrayList<Method>> methods) throws IllegalAccessException, InvocationTargetException {
+    private static void executeAllTests(Class<?> testClass, HashMap<MethodType, ArrayList<Method>> methods) {
         int totalTestAmount = methods.get(MethodType.TEST).size();
         int success = 0;
         int failed = 0;
         for (Method m : methods.get(MethodType.TEST)) {
             try {
+                Object instance = testClass.getDeclaredConstructor().newInstance();
                 executeFixture(instance, methods.get(MethodType.BEFORE));
                 try {
                     m.invoke(instance);
@@ -91,4 +90,3 @@ public class TestRunner {
         }
     }
 }
-
