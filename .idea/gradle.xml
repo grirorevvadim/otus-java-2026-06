@@ -12,6 +12,7 @@
             <option value="$PROJECT_DIR$/hw02-generics-collections" />
             <option value="$PROJECT_DIR$/hw03-reflection-annotations" />
             <option value="$PROJECT_DIR$/hw11-byte-code" />
+            <option value="$PROJECT_DIR$/hw13-oop" />
           </set>
         </option>
         <option name="myGradleHome" value="C:\tools\gradle-6.7.1" />
