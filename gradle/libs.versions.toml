@@ -7,6 +7,10 @@ lombok = "1.18.46"
 gson = "2.14.0"
 assertj = "4.0.0-M1"
 mockito = "5.23.0"
+flywaydb = "13.7.0"
+postgresql = "42.7.13"
+zaxxer = "7.0.2"
+xerial = "3.50.3.0"
 
 [libraries]
 guava = { module = "com.google.guava:guava", version.ref = "guava" }
@@ -19,3 +23,8 @@ lombok = { module = "org.projectlombok:lombok", version.ref = "lombok" }
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 assertj-core = { module = "org.assertj:assertj-core", version.ref = "assertj" }
 mockito-junit-jupiter = { module = "org.mockito:mockito-junit-jupiter", version.ref = "mockito" }
+flyway-core = {module="org.flywaydb:flyway-core", version.ref="flywaydb"}
+postgresql = {module="org.postgresql:postgresql", version.ref="postgresql"}
+flyway-db-postgresql = {module="org.flywaydb:flyway-database-postgresql", version.ref="flywaydb"}
+zaxxer-hikari = {module="com.zaxxer:HikariCP", version.ref="zaxxer"}
+xerial-sqline-jdbc ={module="org.xerial:sqlite-jdbc",version.ref="xerial"}
