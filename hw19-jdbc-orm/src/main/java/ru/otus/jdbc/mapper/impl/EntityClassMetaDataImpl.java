@@ -14,8 +14,11 @@ public class EntityClassMetaDataImpl<T> implements EntityClassMetaData<T> {
 
     private final Class<T> clazz;
 
+    private final Field idField;
+
     public EntityClassMetaDataImpl(Class<T> clazz) {
         this.clazz = clazz;
+        this.idField = computeIdField();
     }
 
     @Override
@@ -39,12 +42,7 @@ public class EntityClassMetaDataImpl<T> implements EntityClassMetaData<T> {
 
     @Override
     public Field getIdField() {
-        for (Field f : clazz.getDeclaredFields()) {
-            if (f.isAnnotationPresent(Id.class)) {
-                return f;
-            }
-        }
-        return null;
+        return this.idField;
     }
 
     @Override
@@ -63,5 +61,19 @@ public class EntityClassMetaDataImpl<T> implements EntityClassMetaData<T> {
         return fields;
     }
 
+    private Field computeIdField() {
+        List<Field> idFields = Arrays.stream(clazz.getDeclaredFields())
+                .filter(f -> f.isAnnotationPresent(Id.class))
+                .toList();
 
+        if (idFields.isEmpty()) {
+            throw new IllegalStateException(
+                    "No @Id field found in " + clazz.getName());
+        }
+        if (idFields.size() > 1) {
+            throw new IllegalStateException(
+                    "Multiple @Id fields found in " + clazz.getName() + ": " + idFields);
+        }
+        return idFields.getFirst();
+    }
 }
