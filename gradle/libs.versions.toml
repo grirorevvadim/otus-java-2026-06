@@ -5,13 +5,21 @@ slf4j = "2.1.0-alpha1"
 logback = "1.5.38"
 lombok = "1.18.46"
 gson = "2.14.0"
-assertj = "4.0.0-M1"
+assertj = "3.27.7"
 mockito = "5.23.0"
+flywaydb = "13.7.0"
+postgresql = "42.7.13"
+zaxxer = "7.0.2"
+xerial = "3.50.3.0"
+hibernate = "7.4.10.Final"
+h2 = "2.4.240"
+testcontainers = "2.0.5"
 
 [libraries]
 guava = { module = "com.google.guava:guava", version.ref = "guava" }
 junit-bom = { module = "org.junit:junit-bom", version.ref = "junit" }
 junit-jupiter = { module = "org.junit.jupiter:junit-jupiter" }
+junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine" }
 junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher" }
 slf4j-api = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }
 logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
@@ -19,3 +27,15 @@ lombok = { module = "org.projectlombok:lombok", version.ref = "lombok" }
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 assertj-core = { module = "org.assertj:assertj-core", version.ref = "assertj" }
 mockito-junit-jupiter = { module = "org.mockito:mockito-junit-jupiter", version.ref = "mockito" }
+flyway-core = { module = "org.flywaydb:flyway-core", version.ref = "flywaydb" }
+postgresql = { module = "org.postgresql:postgresql", version.ref = "postgresql" }
+flyway-db-postgresql = { module = "org.flywaydb:flyway-database-postgresql", version.ref = "flywaydb" }
+zaxxer-hikari = { module = "com.zaxxer:HikariCP", version.ref = "zaxxer" }
+xerial-sqline-jdbc = { module = "org.xerial:sqlite-jdbc", version.ref = "xerial" }
+
+hibernate-core = { module = "org.hibernate.orm:hibernate-core", version.ref = "hibernate" }
+h2 = { module = "com.h2database:h2", version.ref = "h2" }
+
+testcontainers-bom = { module = "org.testcontainers:testcontainers-bom", version.ref = "testcontainers" }
+testcontainers-junit-jupiter = { module = "org.testcontainers:testcontainers-junit-jupiter" }
+testcontainers-postgresql = { module = "org.testcontainers:testcontainers-postgresql" }
