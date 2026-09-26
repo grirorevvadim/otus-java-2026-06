@@ -36,7 +36,7 @@ public class DataTemplateJdbc<T> implements DataTemplate<T> {
     @Override
     public List<T> findAll(Connection connection) {
         return dbExecutor.executeSelect(
-                        connection, entitySQLMetaData.getSelectByIdSql(), List.of(), this::readAll)
+                        connection, entitySQLMetaData.getSelectAllSql(), List.of(), this::readAll)
                 .orElseThrow(() -> new RuntimeException("Unexpected error reading all entities"));
     }
 
