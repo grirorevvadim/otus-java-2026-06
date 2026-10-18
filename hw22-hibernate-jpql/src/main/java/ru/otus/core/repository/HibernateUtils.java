@@ -13,11 +13,17 @@ public final class HibernateUtils {
     private HibernateUtils() {}
 
     public static SessionFactory buildSessionFactory(Configuration configuration, Class<?>... annotatedClasses) {
-        MetadataSources metadataSources = new MetadataSources(createServiceRegistry(configuration));
-        Arrays.stream(annotatedClasses).forEach(metadataSources::addAnnotatedClass);
+        StandardServiceRegistry serviceRegistry = createServiceRegistry(configuration);
+        try {
+            MetadataSources metadataSources = new MetadataSources(serviceRegistry);
+            Arrays.stream(annotatedClasses).forEach(metadataSources::addAnnotatedClass);
 
-        Metadata metadata = metadataSources.getMetadataBuilder().build();
-        return metadata.getSessionFactoryBuilder().build();
+            Metadata metadata = metadataSources.getMetadataBuilder().build();
+            return metadata.getSessionFactoryBuilder().build();
+        } catch (RuntimeException e) {
+            StandardServiceRegistryBuilder.destroy(serviceRegistry);
+            throw e;
+        }
     }
 
     private static StandardServiceRegistry createServiceRegistry(Configuration configuration) {

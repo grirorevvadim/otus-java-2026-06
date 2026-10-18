@@ -30,8 +30,12 @@ public class DataTemplateHibernate<T> implements DataTemplate<T> {
 
     @Override
     public List<T> findAll(Session session) {
-        return session.createQuery(String.format("from %s", clazz.getSimpleName()), clazz)
-                .getResultList();
+        var criteriaBuilder = session.getCriteriaBuilder();
+        var criteriaQuery = criteriaBuilder.createQuery(clazz);
+        var root = criteriaQuery.from(clazz);
+        criteriaQuery.select(root);
+
+        return session.createQuery(criteriaQuery).getResultList();
     }
 
     @Override
