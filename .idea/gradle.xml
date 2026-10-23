@@ -16,6 +16,7 @@
             <option value="$PROJECT_DIR$/hw17-serialization" />
             <option value="$PROJECT_DIR$/hw19-jdbc-orm" />
             <option value="$PROJECT_DIR$/hw22-hibernate-jpql" />
+            <option value="$PROJECT_DIR$/hw23-cache" />
           </set>
         </option>
         <option name="myGradleHome" value="C:\tools\gradle-6.7.1" />
