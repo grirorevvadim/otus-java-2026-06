@@ -44,12 +44,12 @@ public class DbServiceClientImpl implements DBServiceClient {
         if (cached != null) {
             return Optional.of(cached.clone());
         }
-        return transactionManager.doInReadOnlyTransaction(session -> {
+        Optional<Client> result = transactionManager.doInReadOnlyTransaction(session -> {
             log.info("get info from db");
-            var fromDb = clientDataTemplate.findById(session, id);
-            fromDb.ifPresent(c -> cache.put(key, c.clone()));
-            return fromDb;
+            return clientDataTemplate.findById(session, id);
         });
+        result.ifPresent(c -> cache.put(key, c.clone()));
+        return result;
     }
 
     @Override
