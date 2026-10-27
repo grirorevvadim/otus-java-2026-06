@@ -14,6 +14,8 @@ xerial = "3.50.3.0"
 hibernate = "7.4.10.Final"
 h2 = "2.4.240"
 testcontainers = "2.0.5"
+jetty = "12.1.14"
+jakarta-servlet = "6.2.0-M2"
 
 [libraries]
 guava = { module = "com.google.guava:guava", version.ref = "guava" }
@@ -32,6 +34,9 @@ postgresql = { module = "org.postgresql:postgresql", version.ref = "postgresql" 
 flyway-db-postgresql = { module = "org.flywaydb:flyway-database-postgresql", version.ref = "flywaydb" }
 zaxxer-hikari = { module = "com.zaxxer:HikariCP", version.ref = "zaxxer" }
 xerial-sqline-jdbc = { module = "org.xerial:sqlite-jdbc", version.ref = "xerial" }
+jetty-server = { module = "org.eclipse.jetty:jetty-server", version.ref = "jetty" }
+jetty-ee10-servlet = { module = "org.eclipse.jetty.ee10:jetty-ee10-servlet", version.ref = "jetty" }
+jakarta-servlet-api = { module = "jakarta.servlet:jakarta.servlet-api", version.ref = "jakarta-servlet" }
 
 hibernate-core = { module = "org.hibernate.orm:hibernate-core", version.ref = "hibernate" }
 h2 = { module = "com.h2database:h2", version.ref = "h2" }
