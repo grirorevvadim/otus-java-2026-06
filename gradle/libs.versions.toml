@@ -16,12 +16,14 @@ h2 = "2.4.240"
 testcontainers = "2.0.5"
 jetty = "12.1.14"
 jakarta-servlet = "6.2.0-M2"
+reflection = "0.10.2"
 
 [libraries]
 guava = { module = "com.google.guava:guava", version.ref = "guava" }
 junit-bom = { module = "org.junit:junit-bom", version.ref = "junit" }
 junit-jupiter = { module = "org.junit.jupiter:junit-jupiter" }
 junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine" }
+junit-jupiter-params = { module= "org.junit.jupiter:junit-jupiter-params", version.ref = "junit"}
 junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher" }
 slf4j-api = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }
 logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
@@ -37,6 +39,7 @@ xerial-sqline-jdbc = { module = "org.xerial:sqlite-jdbc", version.ref = "xerial"
 jetty-server = { module = "org.eclipse.jetty:jetty-server", version.ref = "jetty" }
 jetty-ee10-servlet = { module = "org.eclipse.jetty.ee10:jetty-ee10-servlet", version.ref = "jetty" }
 jakarta-servlet-api = { module = "jakarta.servlet:jakarta.servlet-api", version.ref = "jakarta-servlet" }
+reflections = {module="org.reflections:reflections", version.ref="reflection"}
 
 hibernate-core = { module = "org.hibernate.orm:hibernate-core", version.ref = "hibernate" }
 h2 = { module = "com.h2database:h2", version.ref = "h2" }
